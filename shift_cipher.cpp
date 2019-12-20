@@ -41,14 +41,22 @@ main(){
 		int key;
 		printf("Input text: ");
 		fgets(text,sizeof(text),stdin);
-		printf("Input key: ");
+		rkey: printf("Input key: ");
 		scanf("%d",&key);
+		if(key>26 || key<0){
+			printf("The key is in the range of 0 - 26!!!\a\n");
+			goto rkey;		//reenter key
+		}
 		printf("---OPTION---");
 		printf("\n1. Encryption");
 		printf("\n2. Decryption");
 		printf("\n3. END");
-		printf("\nChoise option: ");
+		rchoise: printf("\nChoise option: ");
 		scanf("%d",&choise);
+		if(choise>3 || choise<=0){
+			printf("\aThe wrong choice. Please choose again!!!");
+			goto rchoise;	//reenter choise
+		}
 		switch(choise){
 			case 1: Encryption(text, key);
 					break;
